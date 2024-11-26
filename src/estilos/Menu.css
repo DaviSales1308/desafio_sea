@@ -1,0 +1,62 @@
+.progress-bar {
+    display: flex;
+    justify-content: center; /* Centraliza a barra na tela */
+    align-items: center; /* Alinha os itens verticalmente */
+    margin: 20px 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 10px; /* Adiciona espaço interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens fiquem responsivos */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    width: 100%;
+}
+
+li.step {
+    display: flex;
+    flex-direction: column; /* Texto abaixo da imagem */
+    align-items: center; /* Centraliza ícones e textos */
+    margin: 10px;
+    width: 80px; /* Largura de cada step */
+    text-align: center;
+}
+
+.step img {
+    width: 50px; /* Tamanho do ícone */
+    height: 50px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step img:hover{
+    background-color: #2e7da4;
+    border: 2px solid #333;
+}
+
+.step p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.step:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.blocks{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
