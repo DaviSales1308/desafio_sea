@@ -6,12 +6,12 @@ import Listafunc from "../components/Listafunc";
 
 export default function Menu() {
     return (
-        <div>
+        <>
             <Progressbar />
             <div className="blocks">
                 <Infoblock />
                 <Listafunc />
             </div>
-        </div>
+        </>
     )
 }

@@ -13,6 +13,9 @@ export default function Listafunc() {
                 <button className="show">Ver apenas ativos</button>
                 <button className="clean">Limpar filtros</button>
             </div>
+            <div className="">
+                Lista
+            </div>
         </div>
     )
 }
