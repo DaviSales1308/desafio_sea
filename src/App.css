@@ -32,6 +32,7 @@
 .side{
   display: flex;
   justify-content: left;
+
 }
 
 .container {
@@ -39,8 +40,9 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  width: 93%;
+  width: 94%;
   float: right;
+  height: 100%;
 }
 
 @keyframes App-logo-spin {
