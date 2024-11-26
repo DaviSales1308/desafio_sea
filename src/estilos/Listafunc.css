@@ -1,45 +1,172 @@
-.lista-func{
+.lista-func {
     flex: 2;
     background-color: #ffffff;
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    float: right;
+    margin: 0;
 }
 
-h2{
+.corpo{
+    margin:20px;
+}
+
+h2 {
     background-color: #2e7da4;
     height: 48px;
+    display: flex;
     justify-content: left;
+    align-items: center;
     border-radius: 18px 18px 0 0;
-    padding-top: 10px;
-    padding-left: 10px;
-    color: #fff;
+    padding-left: 15px;
+    color: white;
     margin: 0;
+    font-size: 20px;
 }
 
 .filter-buttons {
     display: flex;
     gap: 10px;
-    margin: 10px 0 10px 10px;
+    margin: 15px 0;
 }
 
-.add{
-    width: 97%;
-    margin: 15px;
+.add {
+    width: 100%;
     padding: 20px;
-}
-
-.add, .show, .clean{
-    background-color: #fff;
+    background-color: #2e7da4;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    border: solid 1px #2e7da4;
-    color: #2e7da4;
 }
 
-.show, .clean{
+.add:hover {
+    background-color: #1e5c7c;
+}
+
+.add, .show, .clean {
+    background-color: #fff;
+    color: #2e7da4;
+    border: solid 1px #2e7da4;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.show:hover, .clean:hover {
+    background-color: #2e7da4;
+    color: white;
+}
+
+/* Estilo para a lista de funcionários */
+.func-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.func-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+}
+
+.func-item.inativo {
+    background-color: #f5f5f5;
+}
+
+.func-item .status {
+    padding: 5px 10px;
+    background-color: #2e7da4;
+    color: white;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.func-item .cargo {
+    background-color: #dce8f3;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.func-item .cpf {
+    font-size: 12px;
+    color: #7d7d7d;
+}
+
+.func-item .menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.func-item .menu button {
+    background-color: transparent;
+    border: none;
+    color: #2e7da4;
+    cursor: pointer;
+}
+
+.func-item .menu button:hover {
+    color: #1e5c7c;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .func-list {
+        gap: 10px;
+    }
+    .func-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* Estilos do menu dropdown */
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: #f5f5f5;
+    border: none;
     padding: 10px;
-    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.dropdown-content {
+    display: block; /* Sempre visível quando o menu for ativo */
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    min-width: 120px;
+}
+
+.dropdown-content button {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
 }
