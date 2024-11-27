@@ -58,9 +58,6 @@ input, select, textarea {
     font-size: 14px;
 }
 
-input[type="date"] {
-    width: calc(100% - 16px);
-}
 
 .radio, input[type="checkbox"] {
     margin-right: 10px;
@@ -68,13 +65,13 @@ input[type="date"] {
     flex-direction: row;
 }
 
-.l1 {
-    float: left;
-    margin-top: 11px;
-}
-
 .part2 {
     margin-left: 50px;
+}
+
+.error{
+    color: #e63939;
+    margin-left: 30px;
 }
 
 .part1, .part2 {
@@ -192,5 +189,6 @@ textarea {
 
     .part1, .part2 {
         width: 48%;
+        justify-content: left;
     }
 }
