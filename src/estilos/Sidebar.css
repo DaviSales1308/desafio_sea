@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     width: 60px;
     background-color: #2e7da4;
     display: flex;
@@ -11,7 +11,8 @@
     margin-right: 30px;
 }
 
-.btn_sb{
+/* Botões da barra lateral */
+.btn_sb {
     width: 40px;
     height: 40px;
     margin: 15px 0;
@@ -22,16 +23,81 @@
     justify-content: center;
 }
 
-.btn_sb:hover{
+.btn_sb:hover {
     background-color: #fff;
     cursor: pointer;
 }
 
-.sidebar .btn_sb:hover{
+.sidebar .btn_sb:hover {
     border-left: 4px solid #b8b6b6;
 }
 
 .btn_sb img {
     width: 20px;
     height: 20px;
+}
+
+/* Media Queries */
+
+/* Telas pequenas (max-width: 600px) */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        border-radius: 0;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .btn_sb {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+    .btn_sb img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Telas médias (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .sidebar {
+        width: 80px;
+        height: 70dvh;
+        margin-right: 20px;
+    }
+
+    .btn_sb {
+        width: 50px;
+        height: 50px;
+        margin: 20px 0;
+    }
+
+    .btn_sb img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Telas grandes (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 60px;
+        height: 80dvh;
+        margin-right: 30px;
+    }
+
+    .btn_sb {
+        width: 40px;
+        height: 40px;
+        margin: 15px 0;
+    }
+
+    .btn_sb img {
+        width: 20px;
+        height: 20px;
+    }
 }

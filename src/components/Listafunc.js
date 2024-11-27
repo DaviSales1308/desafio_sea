@@ -26,13 +26,23 @@ export default function Listafunc() {
         navigate(`/Cad_func/${cpf}`);
     };
 
+
     // Toggle do menu dropdown
     const toggleMenu = (cpf) => {
         setMenuAtivo(menuAtivo === cpf ? null : cpf); // Alterna entre mostrar/ocultar o menu
     };
 
     // Função para fechar o menu ao clicar fora
-    const closeMenu = () => setMenuAtivo(null);
+    React.useEffect(() => {
+        const closeMenuOnClickOutside = (event) => {
+            if (!event.target.closest(".menu")) {
+                setMenuAtivo(null);
+            }
+        };
+
+        document.addEventListener("click", closeMenuOnClickOutside);
+        return () => document.removeEventListener("click", closeMenuOnClickOutside);
+    }, []);
 
     return (
         <div className="lista-func">

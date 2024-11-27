@@ -1,4 +1,4 @@
-.infoblock{
+.infoblock {
     flex: 1;
     display: flex;
     align-items: center;
@@ -8,5 +8,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     width: 35%;
-    height: 538px
+    height: 538px;
+}
+
+/* Media Queries */
+
+/* Telas pequenas (max-width: 600px) */
+@media (max-width: 600px) {
+    .infoblock {
+        width: 100%;
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 10px;
+    }
+}
+
+/* Telas médias (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .infoblock {
+        width: 50%;
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 15px;
+    }
+}
+
+/* Telas grandes (min-width: 1025px) */
+@media (min-width: 1025px) {
+    /* Estilos padrão já se aplicam */
 }

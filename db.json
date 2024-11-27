@@ -1,0 +1,16 @@
+{
+  "funcionarios": [
+    {
+      "nome": "João Silva",
+      "cpf": "12345678901",
+      "rg": "1234567",
+      "sexo": "Masculino",
+      "dataNascimento": "1990-01-01",
+      "cargo": "Estagiário",
+      "status": "Ativo",
+      "atividades": [],
+      "epi": [],
+      "atestadoSaude": null
+    }
+  ]
+}

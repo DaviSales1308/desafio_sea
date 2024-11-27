@@ -28,7 +28,7 @@ h2 img {
     margin-right: 30px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -68,20 +68,26 @@ input[type="date"] {
     flex-direction: row;
 }
 
-.form2 {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.l1 {
+    float: left;
+    margin-top: 11px;
+}
+
+.part2 {
+    margin-left: 50px;
 }
 
 .part1, .part2 {
     width: 48%;
 }
 
+.campo2 {
+    display: flex;
+}
 
 button, .Salvar {
     background-color: #fff;
-    color: #2e7da4;;
+    color: #2e7da4;
     border-radius: 4px;
     cursor: pointer;
     border: solid 1px #2e7da4;
@@ -92,7 +98,7 @@ button, .Salvar {
 
 button:hover, .Salvar:hover {
     background-color: #1e5b7a;
-    color:#fff ;
+    color: #fff;
 }
 
 input[type="file"] {
@@ -132,3 +138,59 @@ textarea {
     background-color: #e63939;
 }
 
+/* Media Queries */
+
+/* Telas pequenas (max-width: 600px) */
+@media (max-width: 600px) {
+    .Cad_func {
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 16px;
+        padding: 8px 15px;
+        height: auto;
+    }
+
+    .campo1, .campo2, .campo3, .campo4 {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .EPI {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .part1, .part2 {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Telas médias (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .Cad_func {
+        width: 90%;
+        margin: 15px auto;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    h2 {
+        font-size: 17px;
+        padding: 9px 18px;
+    }
+
+    .campo1, .campo2, .campo3, .campo4 {
+        margin: 15px;
+        padding: 12px;
+    }
+
+    .part1, .part2 {
+        width: 48%;
+    }
+}

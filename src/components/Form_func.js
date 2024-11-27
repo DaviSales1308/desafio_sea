@@ -18,7 +18,7 @@ export default function Formfunc() {
         epi: [],
         atestadoSaude: null,
     });
-
+    const [formErrors, setFormErrors] = useState({});
     const navigate = useNavigate();
     const [atividades, setAtividades] = useState([{ id: 1 }]); // Inicializa com um formulário de atividade
     const [esconderCampos, setEsconderCampos] = useState(false); // Estado para esconder os campos
@@ -46,27 +46,45 @@ export default function Formfunc() {
         }
     };
 
+    const validateForm = () => {
+        let errors = {};
+        if (!formData.nome) errors.nome = "Nome é obrigatório";
+        if (!formData.cpf) errors.cpf = "CPF é obrigatório";
+        if (!formData.cargo) errors.cargo = "Cargo é obrigatório";
+        if (!formData.status) errors.status = "Status é obrigatório";
+        if (!formData.sexo) errors.sexo = "Sexo é obrigatório";
+        return errors;
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Criar um novo funcionário e enviar para o Redux
-        dispatch({ type: 'ADICIONAR_FUNCIONARIO', payload: formData });
 
-        // Resetar o formulário
-        setFormData({
-            nome: "",
-            cpf: "",
-            rg: "",
-            sexo: "",
-            dataNascimento: "",
-            cargo: "",
-            status: "",
-            atividades: [],
-            epi: [],
-            atestadoSaude: null,
-        });
-        setAtividades([{ id: 1 }]);
-        navigate('/');
-    };  
+        // Validar o formulário antes de enviar
+        const errors = validateForm();
+        setFormErrors(errors);
+
+        // Se não houver erros, enviar o formulário
+        if (Object.keys(errors).length === 0) {
+            // Criar um novo funcionário e enviar para o Redux
+            dispatch({ type: 'ADICIONAR_FUNCIONARIO', payload: formData });
+
+            // Resetar o formulário
+            setFormData({
+                nome: "",
+                cpf: "",
+                rg: "",
+                sexo: "",
+                dataNascimento: "",
+                cargo: "",
+                status: "",
+                atividades: [],
+                epi: [],
+                atestadoSaude: null,
+            });
+            setAtividades([{ id: 1 }]);
+            navigate('/');
+        }
+    };
 
     return (
         <div className="Cad_func">
@@ -102,7 +120,8 @@ export default function Formfunc() {
                                     onChange={handleInputChange}
                                 />{" "}
                                 Inativo
-                            </label>
+                            </label><br></br>
+                            {formErrors.status && <span className="error">{formErrors.status}</span>}
                         </div>
                     </div>
 
@@ -115,6 +134,8 @@ export default function Formfunc() {
                                 value={formData.nome}
                                 onChange={handleInputChange}
                             />
+                            {formErrors.nome && <span className="error">{formErrors.nome}</span>}
+
                             <h4>CPF</h4>
                             <input
                                 placeholder="CPF"
@@ -122,6 +143,8 @@ export default function Formfunc() {
                                 value={formData.cpf}
                                 onChange={handleInputChange}
                             />
+                            {formErrors.cpf && <span className="error">{formErrors.cpf}</span>}
+
                             <h4>RG</h4>
                             <input
                                 placeholder="RG"
@@ -132,7 +155,7 @@ export default function Formfunc() {
                         </div>
                         <div className="part2">
                             <h4>Sexo</h4>
-                            <label>
+                            <label className="l1">
                                 <input
                                     type="radio"
                                     className="radio"
@@ -142,7 +165,7 @@ export default function Formfunc() {
                                 />{" "}
                                 Masculino
                             </label>
-                            <label>
+                            <label className="l2">
                                 <input
                                     type="radio"
                                     className="radio"
@@ -151,7 +174,9 @@ export default function Formfunc() {
                                     onChange={handleInputChange}
                                 />{" "}
                                 Feminino
-                            </label>
+                            </label><br></br><br></br>
+                            {formErrors.sexo && <span className="error">{formErrors.sexo}</span>}
+
                             <h4>Data de nascimento</h4>
                             <input
                                 type="date"
@@ -159,6 +184,7 @@ export default function Formfunc() {
                                 value={formData.dataNascimento}
                                 onChange={handleInputChange}
                             />
+
                             <h4>Cargo</h4>
                             <select
                                 name="cargo"
@@ -168,10 +194,11 @@ export default function Formfunc() {
                                 <option value="" disabled>
                                     Selecione
                                 </option>
-                                <option value="estagiario">Estagiário</option>
-                                <option value="trainee">Trainee</option>
-                                <option value="gerente">Gerente</option>
+                                <option value="Estagiário">Estagiário</option>
+                                <option value="Trainee">Trainee</option>
+                                <option value="Júnior">Júnior</option>
                             </select>
+                            {formErrors.cargo && <span className="error">{formErrors.cargo}</span>}
                         </div>
                     </div>
 
@@ -232,7 +259,6 @@ export default function Formfunc() {
                         </form>
                     </div>
 
-
                     {!esconderCampos && (
                         <div className="campo4">
                             <form>
@@ -241,11 +267,10 @@ export default function Formfunc() {
                             </form>
                         </div>
                     )}
-                  
-                        <button type="submit" className="Salvar">
-                            Salvar
-                        </button>
-                   
+                    
+                    <button type="submit" className="Salvar">
+                        Salvar
+                    </button>
                 </form>
             </div>
         </div>
