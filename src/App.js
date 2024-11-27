@@ -38,6 +38,7 @@ function App() {
             <Route path='/' element={<Menu />} />
             <Route path='/Em_breve' element={<Em_breve />} />
             <Route path='/Cad_func' element={<Cad_func/>} />
+            <Route path="/Cad_func/:cpf" element={<Cad_func />} />
           </Routes>
         </div>
         <div className='side'>

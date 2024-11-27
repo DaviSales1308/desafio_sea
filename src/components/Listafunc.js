@@ -1,45 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import {excluirFuncionario} from '../store/funcionarios'
 import "../estilos/Listafunc.css";
 
 export default function Listafunc() {
     const funcionarios = useSelector((state) => state.funcionarios);
     const dispatch = useDispatch();
-    const navigate = useNavigate(); 
-    const [filtroAtivo, setFiltroAtivo] = useState(null);
-    const [menuAtivo, setMenuAtivo] = useState(null); // Controle do menu dropdown
+    const navigate = useNavigate();
 
-    const funcionariosFiltrados = filtroAtivo === null
-        ? funcionarios
-        : funcionarios.filter((func) => func.status === (filtroAtivo ? "Ativo" : "Inativo"));
+    const [filtroAtivo, setFiltroAtivo] = useState(null);
+    const [menuAtivo, setMenuAtivo] = useState(null);
+
+    const funcionariosFiltrados =
+        filtroAtivo === null
+            ? funcionarios
+            : funcionarios.filter((func) => func.status === (filtroAtivo ? "Ativo" : "Inativo"));
 
     const handleFiltroAtivo = () => setFiltroAtivo(true);
     const limparFiltros = () => setFiltroAtivo(null);
 
     const handleExcluir = (cpf) => {
-        dispatch({ type: "EXCLUIR_FUNCIONARIO", payload: cpf });
+        dispatch(excluirFuncionario(cpf));
     };
 
     const handleEditar = (cpf) => {
         navigate(`/Cad_func/${cpf}`);
     };
 
-
-    // Toggle do menu dropdown
     const toggleMenu = (cpf) => {
-        setMenuAtivo(menuAtivo === cpf ? null : cpf); // Alterna entre mostrar/ocultar o menu
+        setMenuAtivo(menuAtivo === cpf ? null : cpf);
     };
 
-    // Função para fechar o menu ao clicar fora
-    React.useEffect(() => {
+    useEffect(() => {
         const closeMenuOnClickOutside = (event) => {
             if (!event.target.closest(".menu")) {
                 setMenuAtivo(null);
             }
         };
-
         document.addEventListener("click", closeMenuOnClickOutside);
         return () => document.removeEventListener("click", closeMenuOnClickOutside);
     }, []);
@@ -70,16 +69,11 @@ export default function Listafunc() {
                                     <div className="name">{funcionario.nome}</div>
                                     <div className="cpf">{funcionario.cpf}</div>
                                 </div>
-                                <div className="status">
-                                    {funcionario.status}
-                                </div>
-                                <div className="cargo">
-                                    {funcionario.cargo}
-                                </div>
+                                <div className="status">{funcionario.status}</div>
+                                <div className="cargo">{funcionario.cargo}</div>
                                 <div className="menu">
                                     <button
                                         className="dropdown-btn"
-                                    
                                         onClick={() => toggleMenu(funcionario.cpf)}
                                     >
                                         ...

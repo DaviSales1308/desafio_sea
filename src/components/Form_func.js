@@ -4,8 +4,21 @@ import seta_para_a_esquerda from "./images/seta_para_a_esquerda.png";
 import { useDispatch } from "react-redux"; // Importando useDispatch
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Formfunc() {
+    const { cpf } = useParams();
+    const funcionario = useSelector((state) =>
+        state.funcionarios.find((func) => func.cpf === cpf)
+    );
+    
+    React.useEffect(() => {
+        if (funcionario) {
+            setFormData(funcionario);
+        }
+    }, [funcionario]);
+
     const [formData, setFormData] = useState({
         nome: "",
         cpf: "",
@@ -63,11 +76,12 @@ export default function Formfunc() {
         const errors = validateForm();
         setFormErrors(errors);
 
-        // Se não houver erros, enviar o formulário
-        if (Object.keys(errors).length === 0) {
-            // Criar um novo funcionário e enviar para o Redux
+    if (Object.keys(errors).length === 0) {
+        if (cpf) {
+            dispatch({ type: 'EDITAR_FUNCIONARIO', payload: formData });
+        } else {
             dispatch({ type: 'ADICIONAR_FUNCIONARIO', payload: formData });
-
+        }
             // Resetar o formulário
             setFormData({
                 nome: "",
