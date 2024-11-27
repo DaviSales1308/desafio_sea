@@ -143,6 +143,7 @@ export default function Formfunc() {
                         <div className="part1">
                             <h4>Nome</h4>
                             <input
+                                type='text'
                                 placeholder="Nome"
                                 name="nome"
                                 value={formData.nome}
@@ -152,6 +153,7 @@ export default function Formfunc() {
 
                             <h4>CPF</h4>
                             <input
+                                type='number'
                                 placeholder="CPF"
                                 name="cpf"
                                 value={formData.cpf}
@@ -161,6 +163,7 @@ export default function Formfunc() {
 
                             <h4>RG</h4>
                             <input
+                                type='number'
                                 placeholder="RG"
                                 name="rg"
                                 value={formData.rg}
