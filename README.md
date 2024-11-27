@@ -1,70 +1,133 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# Desafio de Desenvolvimento - Gestão de Funcionários
 
-### `npm start`
+Bem-vindo ao **Desafio de Desenvolvimento** para o processo seletivo da empresa. Este projeto tem como objetivo criar uma aplicação para gerenciar dados de funcionários, permitindo adicionar, editar e listar informações como nome, CPF, cargo, status e EPIs utilizados, entre outras funcionalidades. A aplicação foi construída utilizando **React** para a interface de usuário, **Redux** para gerenciamento de estado, e um **JSON Server** para simular uma API RESTful.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologias Utilizadas
 
-### `npm test`
+- **React**: Biblioteca para construir interfaces de usuário dinâmicas.
+- **Redux**: Biblioteca para gerenciamento de estado global da aplicação.
+- **React Router**: Utilizado para navegação entre as páginas da aplicação.
+- **Axios**: Biblioteca para realizar requisições HTTP.
+- **JSON Server**: Simula um servidor RESTful para armazenar e manipular dados de forma simples e eficaz.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Funcionalidades
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A aplicação possui as seguintes funcionalidades:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Cadastro de Funcionários**: Permite adicionar novos funcionários com informações detalhadas (nome, CPF, RG, sexo, data de nascimento, cargo, status, atividades e EPIs utilizados).
+- **Edição de Funcionários**: Através de um formulário, é possível editar os dados de um funcionário já cadastrado.
+- **Listagem de Funcionários**: Exibe todos os funcionários cadastrados com a opção de visualizar os detalhes, filtrar e editar.
+- **EPIs e Atividades**: O cadastro permite adicionar informações sobre as atividades desempenhadas e os EPIs utilizados por cada funcionário.
+- **Validação de Formulários**: Assegura que os dados inseridos sejam válidos e completos.
+- **Armazenamento Temporário de Dados**: Utiliza o **JSON Server** para armazenar os dados dos funcionários de forma temporária durante a execução da aplicação. Ao parar o servidor, os dados são perdidos, portanto, é ideal para testes e protótipos rápidos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Como Rodar o Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para executar este projeto localmente, siga os passos abaixo:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clonando o Repositório
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/seu-usuario/desafio-gestao-funcionarios.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Instalando as Dependências
 
-## Learn More
+Após clonar o repositório, entre na pasta do projeto e instale as dependências:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd desafio-gestao-funcionarios
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Rodando o JSON Server
 
-### Code Splitting
+O **JSON Server** simula uma API RESTful. Para iniciar o servidor, execute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run json-server
+```
 
-### Analyzing the Bundle Size
+Isso iniciará o servidor na URL `http://localhost:5000`, onde os dados serão armazenados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4. Rodando o Frontend
 
-### Making a Progressive Web App
+Para rodar a interface do React, execute o seguinte comando:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+Isso abrirá a aplicação no seu navegador, geralmente na URL `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Endpoints da API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+O **JSON Server** irá fornecer os seguintes endpoints para acessar os dados dos funcionários:
 
-### `npm run build` fails to minify
+- **GET** `/funcionarios`: Retorna todos os funcionários cadastrados.
+- **GET** `/funcionarios/{id}`: Retorna os dados de um funcionário específico pelo `id`.
+- **POST** `/funcionarios`: Adiciona um novo funcionário.
+- **PUT** `/funcionarios/{id}`: Atualiza os dados de um funcionário específico pelo `id`.
+- **DELETE** `/funcionarios/{id}`: Deleta um funcionário específico pelo `id`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Estrutura de Pastas
+
+Aqui está a estrutura de pastas do projeto:
+
+```
+/public
+    /index.html
+/src
+    /components       # Componentes React
+    /redux           # Arquivos do Redux (ações, reducers)
+    /estilos         # Arquivos de estilo CSS
+    /images          # Imagens e ícones usados no projeto
+    /App.js          # Componente principal da aplicação
+    /index.js        # Ponto de entrada do React
+/package.json       # Dependências e scripts do projeto
+```
+
+---
+
+## Desafios Resolvidos
+
+Este projeto foi desenvolvido com o intuito de praticar e demonstrar habilidades de desenvolvimento com as seguintes tecnologias e conceitos:
+
+- **React**: Criação de componentes reutilizáveis, gerenciamento de estado local e global (Redux).
+- **Redux**: Implementação de gerenciamento de estado global para gerenciar os dados dos funcionários e as ações de edição, adição e exclusão.
+- **JSON Server**: Criação de um servidor backend simples para armazenar e manipular dados de forma prática durante o desenvolvimento.
+- **Validação de Formulários**: Garantir que os dados inseridos sejam válidos antes de enviar para o backend.
+- **Testes de API**: Testar a API utilizando ferramentas como o **Postman** para garantir o funcionamento correto do servidor.
+
+---
+
+## Melhorias Futuras
+
+Embora a aplicação atenda aos requisitos principais, há várias melhorias que podem ser implementadas, tais como:
+
+- **Persistência de Dados**: Utilizar um banco de dados real para persistir os dados após reiniciar o servidor.
+- **Autenticação**: Implementar um sistema de login para permitir o acesso a diferentes áreas da aplicação.
+- **Interface de Usuário**: Melhorar a UI com componentes mais modernos, como **Material-UI** ou **Ant Design**.
+- **Testes Automatizados**: Implementar testes unitários e de integração usando **Jest** e **React Testing Library**.
+
+---
+
+## Contribuição
+
+Este é um projeto de desafio técnico e a contribuição direta não está aberta. No entanto, sugestões de melhorias são sempre bem-vindas. Se você deseja sugerir melhorias ou corrigir problemas, sinta-se à vontade para abrir um **issue** ou **pull request**.
+
+---
